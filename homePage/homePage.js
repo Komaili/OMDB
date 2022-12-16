@@ -39,7 +39,7 @@ window.onload = function () {
       img.src = movie.image;
       const a = document.createElement("a");
       a.textContent = '    ' + ' ' + movie.title;
-      a.href = "/moviePage.html?imdbID=" + movie.imdbID;
+      a.href = "/moviePage.php?imdbID=" + movie.imdbID;
       li.appendChild(a);
       // console.log(li);
       resultsList.appendChild(li);

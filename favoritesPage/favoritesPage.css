@@ -1,33 +1,161 @@
-* {
+body {
+  background: black;
   text-align: center;
 }
 
-body {
-  background: black;
-}
-
-#favoritesContainer {
-  text-align: left;
-}
-
 h1 {
+  float: left;
+  color: red;
+  
+}
+#results {
+  text-align: center;
   color: white;
-  font-size: 3em;
-  text-align: left;
-  padding-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#movie_link:hover {
+  color: red;
+  background-color: yellow;
 }
 
 ul {
+  width: 2000px;
+}
+li {
+  width: 525px;
+  height: 100px;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: inline-block;
+  text-align: left;
+}
+
+.logoLink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+}
+
+#logo {
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  object-fit: contain;
+}
+
+#topnavContainer {
+  position: relative;
+}
+
+#search {
+  width: 30%;
+  padding: 6px;
+  margin-top: 8px;
+  border: none;
+  text-align: center;
+  font-size: 17px;
+}
+
+#topnavContainer a {
+  text-decoration: none;
+  padding: 10px;
+  opacity: 75%;
+  color: white;
+}
+
+#topnavContainer a:hover {
+  background: red;
+  border-radius: 5px;
+  opacity: 75%;
+}
+
+#nav {
+  position: sticky;
+  top: 2%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 2vh;
+  margin-right: 2vh;
+}
+
+#nav-links {
+  /* background: red; */
+  justify-content: space-around;
+  position: absolute;
+  top: 0vh;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
+  height: 60vh;
+  width: 20%;
+
+  /* transform: translateX(100%); */
+  transition: transform 0.5s ease-in;
 }
 
-#favoritesContainer ul a {
-  font-size: 2em;
-  opacity: 0.8;
+#nav-links li {
+  list-style: none;
+  display: block;
+  opacity: 0;
+  text-align: center;
 }
 
-#favMovie:hover {
-  opacity: 1;
+#nav-links a {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+
+#burger {
+  display: block;
+  position: sticky;
+  top: 0;
+  background-color: black;
+  border: 2px solid black;
+  padding: 15px;
+  cursor: pointer;
+}
+
+#burger div {
+  width: 25px;
+  height: 3px;
+  margin: 5px;
+  background: white;
+
+  transition: all 0.3s ease;
+}
+
+#nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
 }

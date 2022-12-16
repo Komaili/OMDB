@@ -2,7 +2,6 @@ var ID = "";
 var imdbMovieInfo;
 
 window.onload = function () {
-  console.log("HELELELELELEL");
   const BASE_URL = "https://polar-woodland-00821.herokuapp.com/";
   const url = document.location.href;
   const imdbID = url.split("=")[1];
@@ -422,6 +421,10 @@ let putTrailerVideoOnPage = function (data) {
     console.log(elem.name.match(trailerRegex));
   });
 
+  console.log(data.results);
+
+  console.log(trailerVideo.src);
+
   poster = document.getElementById("poster");
   console.log(poster.naturalHeight);
   trailerVideo.style.height = poster.naturalHeight + "px";
@@ -436,6 +439,9 @@ let putTrailerOnPage = function (data) {
 };
 
 let putInfoOnPage = function (data) {
+  console.log("PUTTING ON PAGE");
+  console.log(data);
+
   genresList = document.getElementById("genresList");
 
   // Remove empty bullet point that's at the beginning of the genresList

@@ -1,7 +1,8 @@
 <?php
   session_start();
-?>
+  $script = $_SERVER['PHP_SELF'];
 
+print <<<loginPage
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +14,7 @@
   </head>
   <body>
     <div class="container">
-    <form action="login.php" method="POST">
+    <form action=login.php method="POST">
       <h1 class="form__title">Login</h1>
 
       <div class="form__input-group">
@@ -33,13 +34,14 @@
       <p>Click here to go back to <a href="../../homePage/homePage.php">Homepage</a></p>
     </form>
 
-    <?php
-      if(isset($_GET['error']))
-      {
-        echo '<font color="#FF0000"><p>Incorrect username or password</p>';
-      }
-    ?>
     </div>
 
   </body>
 </html>
+loginPage;
+
+if(isset($_GET['error']))
+{
+  echo '<font color="#FF0000"><p>Incorrect username or password</p>';
+}
+?>

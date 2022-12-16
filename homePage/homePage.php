@@ -1,6 +1,5 @@
 <?php
   session_start();
-  $_SESSION['current_url'] = "http" . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 ?>
 
 
@@ -60,10 +59,10 @@
               <div class="row">
                   <div class="col-sm-6 col-md-3 item">
                       <h3>Website Description</h3>
-                      <p>A website where you can search your favorite movies to see the trailer, description, ratings, and genre.</p> <br>
-                      <p>Moreover, you are able to login and store favorite movies in the favorites page. </p> 
-                      <br> <br>
-                      <p>Creators: Brandon Hubacher, Taran Nudurumati, Zachary Moss, Komail Wahab </p> <br>
+                      <p>A website where you can search your favorite movies to see the trailer, description, ratings, and genre.</p>
+                      <p>Moreover, you are able to login and store favorite movie links in the favorites page. </p>
+                      <br>
+                      <p>Creators: Brandon Hubacher, Taran Nudurumati, Zachary Moss, Komail Wahab </p>
                       <ul>
                           <li><a href="../contactPage/contactPage.html">Contact us</a></li>
                           <!-- <li><a href="../dummyPage.html">About us</a></li>
@@ -79,7 +78,7 @@
                   </div>
                   <!-- <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div> -->
               </div>
-              <p class="copyright">Seal Team Six &copy; 05/06/2022</p>
+              <p class="copyright">Seal Team Six © 05/06/2022</p>
           </div>
       </footer>
   </div>

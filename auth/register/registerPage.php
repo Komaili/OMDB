@@ -24,12 +24,12 @@
       <br />
 
       <div class="form__input-group">
-                <input type="password" class="form__input" id="password" name="password" autofocus placeholder="Password">
+                <input type="text" class="form__input" id="password" name="password" autofocus placeholder="Password">
             </div>
       <br />
 
       <div class="form__input-group">
-                <input type="password" class="form__input" id="rpassword" name="rpassword" autofocus placeholder="Repeat Password">
+                <input type="text" class="form__input" id="rpassword" name="rpassword" autofocus placeholder="Repeat Password">
             </div>
       <br />
 

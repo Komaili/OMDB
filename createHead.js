@@ -42,20 +42,6 @@ window.onload = function () {
   form.action = "../homePage/homePage.php";
   form.method = "get";
 
-  // var isLoggedIn = "<?=$_COOKIE[username]?>";
-
-  // var auth_bar = isLoggedIn
-  //   ? "<span>Welcome, $_COOKIE[username]</span>"
-  //   : '<a href="../auth/register/registerPage.php">Sign Up</a>' +
-  //     '<a href="../auth/login/loginPage.php">Login In</a>';
-
-  // form.innerHTML =
-  //   '<div id="topnavContainer">' +
-  //   '<input id="search" type="text" name="searchTerm" placeholder="Search OMDb: Movies"/>' +
-  //   auth_bar +
-  //   "</div>";
-  // '<div id="content">' + '<div id="movie-slider"></div>' + "</div>";
-
   form.innerHTML =
     '<div id="topnavContainer">' +
     '<input id="search" type="text" name="searchTerm" placeholder="Search OMDb: Movies"/>' +

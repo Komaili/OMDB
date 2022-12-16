@@ -4,9 +4,9 @@
 
     if ($_POST["firstname"] != "" && $_POST["lastname"] != "" && $_POST["subject"] != "") {
         $server = "spring-2022.cs.utexas.edu";
-        $user = 'cs329e_bulko_branhub';
-        $pwd = 'marble+dwell8Inform';
-        $dbName = 'cs329e_bulko_branhub';
+        $user = "cs329e_bulko_zach6";
+        $pwd = "Dollar+cask2Chalk";
+        $dbName = "cs329e_bulko_zach6";
 
         // connect to a MYSQL server
         $mysqli = new mysqli ($server, $user, $pwd, $dbName);

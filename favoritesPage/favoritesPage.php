@@ -1,7 +1,7 @@
 <?php
   session_start();
   $_SESSION['current_url'] = "http" . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-  if(!isset($_COOKIE['username']))
+  if(!isset($_COOKIE['login']))
   {
     authenticate();
   }
@@ -9,9 +9,50 @@
   function authenticate() {
     header("Location: ../auth/login/loginPage.php");
   }
-?>
 
-<!DOCTYPE html>
+  // newFavPage();
+  favPage();
+  // make an sql select statement to get fav titles 
+  $server = "spring-2022.cs.utexas.edu";
+  $user = "cs329e_bulko_zach6";
+  $pwd = "Dollar+cask2Chalk";
+  $dbName = "cs329e_bulko_zach6";
+
+  // connect to a MYSQL server
+  $mysqli = new mysqli ($server, $user, $pwd, $dbName);
+
+  $client_user = $_SESSION["username"];
+
+  $command = "Select url from fav_movies where username = \"$client_user\"";
+  $result = $mysqli->query($command);
+
+  $counter = 1;
+  for ($i=0; $i<5; $i++) {
+    echo "<br>";
+  }
+
+  // check if there are no favorite movies for a specific user 
+  $row_cnt = $result->num_rows;
+
+  $message = $client_user . ", you have no favorite movies at this time.";
+  if ($row_cnt == 0) {
+    echo "<h2 style=\"text-align:center; color:white\"> $message</h2>";
+  }
+
+  // post favorite movie links
+  while ($row = $result->fetch_assoc()) {
+
+    // get the url 
+    $url = $row["url"];
+
+    echo "<p>" ."<h2 style=\"text-align:center;\"><a id=\"movie_link\" href=\"$url\">Favorite Movie ".strval($counter)."</a></h2></p>";
+    // echo "<p>" ."<h2 style=\"text-align:center; color: white;\"><p><link href=\"$url\">Favorite Movie ".strval($counter)."</text></h2></p>";
+    $counter +=1;
+  }
+
+function favPage(){
+  print <<<favPage
+  <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,75 +60,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="favoritesPage.css" />
     <link rel="stylesheet" href="../navBar.css" />
-    <link rel="stylesheet" href="footer.css" />
     <title>Favorites</title>
   </head>
-  <body style="background: black;">
-    <?php
-      $db_server = 'spring-2022.cs.utexas.edu';
-      $db_username = 'cs329e_bulko_branhub';
-      $db_password = 'marble+dwell8Inform';
-      $db_dbName = 'cs329e_bulko_branhub';
+  <body>
+    <a href="../homePage/homePage.php" class="logoLink"
+    ><img id="logo" src="../images/logo.png" alt="LOGO"
+  /></a>
+    <nav id="nav">
+    <ul id="nav-links">
+      <li>
+        <a href="../homePage/homePage.php">Home</a>
+      </li>
+      <li>
+        <a href="../favoritesPage/favoritesPage.php">Favorites</a>
+      </li>
+      <li>
+        <a href="../contactPage/contactPage.html">Contact Us</a>
+      </li>
+    </ul>
 
-      $mysqli = new mysqli($db_server, $db_username, $db_password, $db_dbName);
+    <div id="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </nav>
 
-      if($mysqli->connect_errno) {
-        die('CUSTOM Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli-> connect_error);
+<form id="searchForm" action="homePage.php" method="get">
+  <div id="topnavContainer">
+    <input
+      id="search"
+      type="text"
+      name="searchTerm"
+      placeholder="Search OMDb: Movies"
+    />
+    <a href="../auth/register/registerPage.php">Sign Up</a>
+    <a href="../auth/login/loginPage.php">Login In</a>
+  </div>
+  <div id="content">
+        <div id="movie-slider"></div>
+      </div>
+    </form>
+    <script>
+    const form = document.getElementById("searchForm");
+    const searchInput = document.querySelector("input");
+
+    form.addEventListener("keydown", function (event) {
+      console.log("key was pressed");
+      // TODO: Don't run if search bar is empty
+      if (event.code === "Enter") {
+        console.log("enter has been pressed");
+        var searchTerm = searchInput.value;
+        console.log("the search term is: " + searchTerm);
+        var url =
+          "../searchPage/searchPage.html?search=" +
+          encodeURIComponent(searchTerm);
+
+        document.location.href = url;
+        event.preventDefault();
       }
-
-      // Create query to see if username is correct
-      // $db_table = 'website_auth';
-      //$query = "SELECT * FROM website_auth WHERE username = \"$username\"";
-
-      // Check if movie is in movie table, if not add it
-      $query_get_favorites = "SELECT movie.title, movie.url FROM website_auth JOIN has_favorite ON website_auth.username = has_favorite.username JOIN movie ON has_favorite.movieID = movie.movieID WHERE website_auth.username = \"$_COOKIE[username]\"";
-      $result = $mysqli->query($query_get_favorites);
-
-      if (!$result) {
-        die("Query failed: ($mysqli->error <br> SQL query = $query");
-      }
-      else
-      {
-	echo '<h1>Your Favorites</h1>';
-	echo '<div style="text-align: center;" id="favoritesContainer">';
-        echo '<ul>';
-
-        while($row = $result->fetch_assoc())
-        {
-          echo '<li>' . '<a id=favMovie style="color: darkgray;" href=' . $row['url'] . ' id="favoriteLink">' . $row['title'] . '</a>' . '</li><br>';
-        }
-
-        echo '</ul>';
-	echo '</div>';
-      }
-    ?>
-    <div class="footer-dark">
-      <footer>
-          <div class="container2">
-              <div class="row">
-                  <div class="col-sm-6 col-md-3 item">
-                      <h3>Website Description</h3>
-                      <p>A website where you can search your favorite movies to see the trailer, description, ratings, and genre.</p> <br>
-                      <p>Moreover, you are able to login and store favorite movies in the favorites page. </p> 
-                      <br> <br>
-                      <p>Creators: Brandon Hubacher, Taran Nudurumati, Zachary Moss, Komail Wahab </p> <br>
-                          <a href="../contactPage/contactPage.html">Contact us</a>
-                  </div>
-
-                  <div class="col-md-6 item text"> <br><br>
-                      <!-- <h3>Info</h3>
-                      <p>A website where you can search your favorite movies to see the cast, plot, ratings, etc...</p>
-                      <br>
-                      <p>Creators: Brandon Hubacher, Taran Nudurumati, Zachary Moss, Komail Wahab </p> -->
-                  </div>
-                  <!-- <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div> -->
-              </div>
-              <p class="copyright">Seal Team Six &copy; 05/06/2022</p>
-          </div>
-      </footer>
+    });
+  </script>
+  <div id="flexContainer">
+    <div id="resultsContainer">
+      <ul id="results"></ul>
+    </div>
   </div>
 
-    <script src="../createHead.js"></script>
-    <script src="../navBar.js"></script>
+  <script src="../homePage/homePage.js" charset="utf-8"></script>
+
+  <script>
+    document.addEventListener("click", function (event) {
+      var target = event.target;
+
+      // TODO: Develop more efficient logic to preclude generating movie page
+      // for non movie links
+      if (target.tagName === "A" && target.href.match("movie")) {
+        console.log(target.href.split("."));
+
+        var imdbID = target.href.split("=")[1];
+        console.log("href: " + target.href);
+        console.log("imdbID: " + imdbID);
+        var url =
+          "../moviePage/moviePage.php?imdbID=" + encodeURIComponent(imdbID);
+
+        console.log(target.textContent);
+        // a.textContent = movie.title;
+
+        document.location.href = url;
+
+        // Why is this required to make the page be directed to the proper path?
+        event.preventDefault();
+      }
+    });
+  </script>
+  <!-- <script src="../createHead.js"></script> -->
+  <script src="../navBar.js"></script>
   </body>
 </html>
+favPage;
+}
+?>
