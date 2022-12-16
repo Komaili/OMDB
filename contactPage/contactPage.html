@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="contactPage.css" />
+    <link rel="stylesheet" href="../navBar.css" />
+  </head>
+  <body>
+    <script type="text/javascript" src="alert.js" defer> </script>
+    <!-- NAVIGATION Link-->
+
+    <div class="about-section">
+      <h1>Contact us</h1>
+      <p>
+        Meet our team of brilliant developers and contact them for any
+        information
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img
+            src="../images/taran.jpg"
+            alt="Image of Taran"
+            style="width: 300px; height: 400px"
+          />
+          <div class="container">
+            <a href="https://www.linkedin.com/in/taran-nudurumati/">
+              <h2>Taran Nudurumati</h2>
+            </a>
+            <p class="title">Web Developer</p>
+            <p>Studying Neuroscience, Business, and Computer Science at The University of Texas at Austin</p>
+            <br />
+            <p>tarannudurumati@gmail.com</p>
+            <br />
+            <form action="mailto:tarannudurumati@gmail.com" method="GET">
+              <input type="submit" value="Contact Me" />
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="../images/brandon.jpg"
+            alt="Image of Brandon"
+            style="width: 300px; height: 400px"
+          />
+          <div class="container">
+            <a href="https://www.linkedin.com/in/brandonhubacher/">
+              <h2>Brandon Hubacher</h2>
+            </a>
+            <p class="title">Web Developer</p>
+            <p>Studying Biochemistry and Computer Science at The University of Texas at Austin
+            </p>
+            <br />
+            <p>brandon.hubacher@gmail.com</p>
+            <br />
+            <form action="mailto:brandon.hubacher@gmail.com" method="GET">
+              <input type="submit" value="Contact Me" />
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="../images/komail.jpg"
+            alt="An image of Komail"
+            style="width: 300px; height: 400px"
+          />
+          <div class="container">
+            <a href="https://www.linkedin.com/in/komailwahab/">
+              <h2>Komail Wahab</h2>
+            </a>
+            <p class="title">Web Designer</p>
+            <p>Aspiring Software Engineer | Studying Psychology & Computer Science at The University of Texas at Austin </p>
+            <br />
+            <p>komail.wahab@gmail.com</p>
+            <br />
+            <form action="mailto:komail.wahab@gmail.com" method="GET">
+              <input type="submit" value="Contact Me" />
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="../images/zach"
+            alt="An image of Zach"
+            style="width: 300px; height: 400px"
+          />
+          <div class="container">
+            <a href="https://www.linkedin.com/in/zachary-moss-1aa486199/">
+              <h2>Zachary Moss</h2>
+            </a>
+            <p class="title">Web Designer</p>
+            <p>Studying Neuroscience and Computer Science at The University of Texas at Austin
+            </p>
+            <br />
+            <p>zachary.moss@utexas.com</p>
+            <br />
+            <form action="mailto:zachary.moss@utexas.edu" method="GET">
+              <input type="submit" value="Contact Me" />
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="contactus">
+        <form id="commentForm" action="action_page.php" method="POST">
+          <label for="fname">First Name</label>
+          <input
+            type="text"
+            id="fname"
+            name="firstname"
+            placeholder="Your name.."
+          />
+
+          <label for="lname">Last Name</label>
+          <input
+            type="text"
+            id="lname"
+            name="lastname"
+            placeholder="Your last name.."
+          />
+
+          <label for="subject">Comments:</label>
+          <textarea
+            id="subject"
+            name="subject"
+            placeholder="Contact us..."
+            style="height: 100px"
+          ></textarea>
+          <div style="text-align: center">
+            <input type="submit" value="Submit" onclick="alertUser()"/>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- FOOTER-->
+    <div class="footer-dark">
+      <footer>
+          <div class="container2">
+              <div class="row">
+                  <div class="col-sm-6 col-md-3 item">
+                      <h3>Website Description</h3>
+                      <p>A website where you can search your favorite movies to see the trailer, description, ratings, and genre.</p> <br>
+                      <p>Moreover, you are able to login and store favorite movies in the favorites page. </p> 
+                      <br> <br>
+                      <p>Creators: Brandon Hubacher, Taran Nudurumati, Zachary Moss, Komail Wahab </p> <br>
+                      <ul>
+                          <li><a href="../contactPage/contactPage.html">Contact us</a></li>
+                          <!-- <li><a href="../dummyPage.html">About us</a></li>
+                          <li><a href="../dummyPage.html">Careers</a></li> -->
+                      </ul>
+                  </div>
+
+                  <div class="col-md-6 item text"> <br><br>
+                      <!-- <h3>Info</h3>
+                      <p>A website where you can search your favorite movies to see the cast, plot, ratings, etc...</p>
+                      <br>
+                      <p>Creators: Brandon Hubacher, Taran Nudurumati, Zachary Moss, Komail Wahab </p> -->
+                  </div>
+                  <!-- <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div> -->
+              </div>
+              <p class="copyright">Seal Team Six &copy; 05/06/2022</p>
+          </div>
+      </footer>
+  </div>
+    <script src="../createHead.js"></script>
+    <script src="../navBar.js"></script>
+  </body>
+</html>

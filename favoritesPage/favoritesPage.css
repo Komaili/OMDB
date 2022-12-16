@@ -1,0 +1,33 @@
+* {
+  text-align: center;
+}
+
+body {
+  background: black;
+}
+
+#favoritesContainer {
+  text-align: left;
+}
+
+h1 {
+  color: white;
+  font-size: 3em;
+  text-align: left;
+  padding-top: 30px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+#favoritesContainer ul a {
+  font-size: 2em;
+  opacity: 0.8;
+}
+
+#favMovie:hover {
+  opacity: 1;
+}

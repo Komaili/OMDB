@@ -1,0 +1,72 @@
+
+body {
+    text-align: center;
+    overflow-x: scroll;
+    background-color: black;
+    color: white;
+}
+
+figcaption {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    font-size:10pt;
+    color: white;
+    
+}
+
+#trending {
+    display: flex;
+    overflow: auto;
+}
+
+
+#netflix-originals {
+    display: flex;
+    overflow: auto;
+}
+
+#top-rated {
+    display: flex;
+    overflow: auto;
+}
+
+#action{
+    display: flex;
+    overflow: auto;
+}
+
+#comedy {
+    display: flex;
+    overflow: auto;
+}
+
+#horror {
+    display: flex;
+    overflow: auto;
+}
+
+#romance {
+    display: flex;
+    overflow: auto;
+}
+
+#docs {
+    display: flex;
+    overflow: auto;
+}
+
+.category::-webkit-scrollbar{
+    display: none;
+}
+
+.poster:hover{
+    transform: scale(1.08);
+    transition: transform 450ms;
+    
+}
+
+.poster{
+
+    padding:7px;
+}

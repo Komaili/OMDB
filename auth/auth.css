@@ -1,0 +1,16 @@
+body {
+  background: gray;
+}
+
+input[type="text"] {
+  width: 200px;
+  height: 20px;
+}
+
+#username {
+  margin-bottom: 30px;
+}
+
+#password {
+  margin-bottom: 10px;
+}

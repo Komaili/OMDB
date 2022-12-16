@@ -1,0 +1,151 @@
+body {
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+.trailer img {
+  float: left;
+}
+
+.rightOfTrailer {
+  clear: both;
+}
+
+a {
+  color: white;
+}
+
+.logoLink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+}
+
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  z-index: 10;
+}
+
+#nav {
+  position: sticky;
+  top: 2%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 2vh;
+  /*margin-right: 2vh;*/
+  margin-right: 100%;
+  margin-left: 100%;
+  z-index: 10;
+}
+
+#nav-links {
+  /* background: red; */
+  justify-content: space-around;
+  position: absolute;
+  top: 0vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
+  width: 20%;
+
+  /* transform: translateX(100%); */
+  transition: transform 0.5s ease-in;
+}
+
+#nav-links li {
+  list-style: none;
+  display: block;
+  opacity: 0;
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  margin-right: 300px;
+}
+
+
+#trailerVideo {
+  /* height: 342px; */
+  /* height: 500px; */
+  aspect-ratio: 16 / 9;
+}
+
+#title {
+  font-size: 2em;
+}
+
+.row2 {
+  /* background: gray; */
+  height: 4em;
+  font-size: 1.25em;
+  word-spacing: 0.5em;
+}
+
+#summaryfont {
+  word-spacing: normal;
+}
+
+#favbutton {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+#runTime {
+  word-spacing: 0em;
+}
+
+#genrenames {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-right: 1cm;
+}
+
+#genres {
+  font-size: 1.25em;
+}
+
+#genresList {
+  /* display: inline; */
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  text-decoration: none;
+}
+
+.rightOfTrailer {
+  /* float: right; */
+  justify-content: center;
+}
+
+#summaryTitle {
+  font-size: 1.25em;
+  padding: 40px 0 0 0;
+}
+
+.trailer {
+  display: flex;
+  justify-content: center;
+}
+
+#favoriteButton {
+  position: relative;
+  display: block;
+  height: 2em;
+  width: var();
+  top: 20%;
+  background: gray;
+  color: white;
+}
+
+/* #favoriteButton span {
+  font-size: 2em;
+} */
